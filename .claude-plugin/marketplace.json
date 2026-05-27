@@ -23,6 +23,15 @@
         "path": "plugins/garlic"
       },
       "description": "Ward off AI burnout: tracks active Claude Code time via hooks and nudges you to take breaks, plus a /garlic status command. Requires the garlic binary on PATH."
+    },
+    {
+      "name": "sproot",
+      "source": {
+        "source": "git-subdir",
+        "url": "justanotherspy/sproot",
+        "path": "plugins/sproot"
+      },
+      "description": "Convert setup bash scripts into sproot.yaml modules, and author/explain/validate sproot configs - /sproot:script-convert + /sproot:author-config skills."
     }
   ]
 }

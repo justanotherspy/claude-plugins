@@ -12,6 +12,7 @@ each one.
 | -------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `shuck`  | [`justanotherspy/shuck`](https://github.com/justanotherspy/shuck)   | Exact failing CI step logs for a GitHub PR — a `/shuck` skill plus a local MCP server.          |
 | `garlic` | [`justanotherspy/garlic`](https://github.com/justanotherspy/garlic) | Ward off AI burnout — tracks active Claude Code time via hooks and nudges breaks, plus `/garlic`. |
+| `sproot` | [`justanotherspy/sproot`](https://github.com/justanotherspy/sproot) | Author and convert `sproot.yaml` configs — `/sproot:script-convert` + `/sproot:author-config` skills. |
 
 Each entry uses a [`git-subdir`](https://code.claude.com/docs/en/plugin-marketplaces#git-subdirectories)
 source so the plugin is fetched straight from its home repo (e.g.
@@ -30,6 +31,7 @@ Then install the plugins you want:
 ```
 /plugin install shuck@justanotherspy
 /plugin install garlic@justanotherspy
+/plugin install sproot@justanotherspy
 ```
 
 To enable plugins automatically for a repo, add them to that repo's
