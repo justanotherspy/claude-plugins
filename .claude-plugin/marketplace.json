@@ -13,7 +13,8 @@
         "url": "justanotherspy/shuck",
         "path": "plugins/shuck"
       },
-      "description": "Get the exact failing CI step logs for a GitHub PR via the shuck CLI — /shuck skill + local MCP server (inspect_logs / inspect_reviews / inspect_security / inspect_action)."
+      "description": "Get the exact failing CI step logs for a GitHub PR via the shuck CLI — /shuck skill + local MCP server (inspect_logs / inspect_reviews / inspect_security / inspect_action).",
+      "strict": true
     },
     {
       "name": "garlic",
@@ -22,7 +23,8 @@
         "url": "justanotherspy/garlic",
         "path": "plugins/garlic"
       },
-      "description": "Ward off AI burnout: tracks active Claude Code time via hooks and nudges you to take breaks, plus a /garlic status command. Requires the garlic binary on PATH."
+      "description": "Ward off AI burnout: tracks active Claude Code time via hooks and nudges you to take breaks, plus a /garlic status command. Requires the garlic binary on PATH.",
+      "strict": true
     },
     {
       "name": "sproot",
@@ -31,7 +33,8 @@
         "url": "justanotherspy/sproot",
         "path": "plugins/sproot"
       },
-      "description": "Convert setup bash scripts into sproot.yaml modules, and author/explain/validate sproot configs - /sproot:script-convert + /sproot:author-config skills."
+      "description": "Convert setup bash scripts into sproot.yaml modules, and author/explain/validate sproot configs - /sproot:script-convert + /sproot:author-config skills.",
+      "strict": true
     }
   ]
 }
