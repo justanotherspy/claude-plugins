@@ -1,0 +1,13 @@
+{
+  "name": "output-styles",
+  "description": "A collection of output styles for Claude Code. Includes ASD-STE100, Simplified Technical English for agent prose.",
+  "version": "0.1.0",
+  "author": {
+    "name": "justanotherspy",
+    "email": "daniel.schwartz@hey.com"
+  },
+  "homepage": "https://github.com/justanotherspy/claude-plugins/tree/main/plugins/output-styles",
+  "repository": "https://github.com/justanotherspy/claude-plugins",
+  "license": "MIT",
+  "keywords": ["output-styles", "writing", "ste", "asd-ste100", "technical-writing"]
+}
