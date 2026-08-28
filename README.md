@@ -13,12 +13,15 @@ catalogs them all and points at where to fetch each one.
 | `shuck`         | [`justanotherspy/shuck`](https://github.com/justanotherspy/shuck)   | Exact failing CI step logs for a GitHub PR — a `/shuck` skill plus a local MCP server.          |
 | `garlic`        | [`justanotherspy/garlic`](https://github.com/justanotherspy/garlic) | Ward off AI burnout — tracks active Claude Code time via hooks and nudges breaks, plus `/garlic`. |
 | `sproot`        | [`justanotherspy/sproot`](https://github.com/justanotherspy/sproot) | Author and convert `sproot.yaml` configs — `/sproot:script-convert` + `/sproot:author-config` skills. |
+| `humanizer`     | [`blader/humanizer`](https://github.com/blader/humanizer)           | Rewrite AI-sounding text so it reads naturally without changing what it says (external plugin). |
 | `output-styles` | [`plugins/output-styles`](plugins/output-styles)                    | Output styles for Claude Code — currently `ASD-STE100`, Simplified Technical English for prose. |
 
 A plugin hosted in its own repo uses a [`git-subdir`](https://code.claude.com/docs/en/plugin-marketplaces#git-subdirectories)
 source, so the plugin is fetched straight from that repo (e.g.
 `plugins/shuck` inside `justanotherspy/shuck`). A plugin hosted here uses a
-relative path source (e.g. `./plugins/output-styles`).
+relative path source (e.g. `./plugins/output-styles`). An external plugin
+maintained by someone else uses a `github` source pointing at its repo root
+(e.g. `blader/humanizer`).
 
 ## Install
 
@@ -34,6 +37,7 @@ Then install the plugins you want:
 /plugin install shuck@justanotherspy
 /plugin install garlic@justanotherspy
 /plugin install sproot@justanotherspy
+/plugin install humanizer@justanotherspy
 /plugin install output-styles@justanotherspy
 ```
 
