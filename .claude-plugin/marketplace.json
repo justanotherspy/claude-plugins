@@ -37,6 +37,15 @@
       "strict": true
     },
     {
+      "name": "humanizer",
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer"
+      },
+      "description": "Rewrite AI-sounding text so it reads naturally without changing what it says. External plugin sourced from blader/humanizer.",
+      "strict": true
+    },
+    {
       "name": "output-styles",
       "source": "./plugins/output-styles",
       "description": "A collection of output styles for Claude Code. Includes ASD-STE100, Simplified Technical English for agent prose: one meaning per word, active voice, simple tenses, short sentences.",
