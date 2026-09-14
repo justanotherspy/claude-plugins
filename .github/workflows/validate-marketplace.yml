@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - '.claude-plugin/**'
+      - 'plugins/**'
       - '.github/workflows/validate-marketplace.yml'
   push:
     branches: [main]
     paths:
       - '.claude-plugin/**'
+      - 'plugins/**'
       - '.github/workflows/validate-marketplace.yml'
 
 jobs:
