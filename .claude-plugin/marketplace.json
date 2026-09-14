@@ -1,8 +1,10 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "justanotherspy",
   "owner": {
     "name": "justanotherspy",
-    "email": "daniel.schwartz@hey.com"
+    "email": "daniel.schwartz@hey.com",
+    "url": "https://github.com/justanotherspy"
   },
   "description": "Central marketplace for justanotherspy's Claude Code plugins, each sourced from its home repo.",
   "plugins": [
@@ -13,7 +15,19 @@
         "url": "justanotherspy/shuck",
         "path": "plugins/shuck"
       },
-      "description": "Get the exact failing CI step logs for a GitHub PR via the shuck CLI — /shuck skill + local MCP server (inspect_logs / inspect_reviews / inspect_security / inspect_action).",
+      "description": "Keep Claude current on the pull request you are actually working on. A background monitor follows your working tree and reports new CI failures with their exact failing step logs, review comments with the surrounding code, and GitHub Actions whose SHA pin has gone stale, as they happen. Adds the /shuck skill for the same reports on demand. Requires the shuck binary on PATH.",
+      "repository": "https://github.com/justanotherspy/shuck",
+      "license": "MIT",
+      "category": "development",
+      "keywords": [
+        "ci",
+        "github-actions",
+        "logs",
+        "pull-request",
+        "code-review",
+        "monitor",
+        "debugging"
+      ],
       "strict": true
     },
     {
@@ -23,7 +37,16 @@
         "url": "justanotherspy/garlic",
         "path": "plugins/garlic"
       },
-      "description": "Ward off AI burnout: tracks active Claude Code time via hooks and nudges you to take breaks, plus a /garlic status command. Requires the garlic binary on PATH.",
+      "description": "Ward off AI burnout: tracks active Claude Code time via hooks and nudges you to take breaks, plus a /garlic status command. Requires the garlic binary on PATH (cargo install garlic-ward).",
+      "repository": "https://github.com/justanotherspy/garlic",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "productivity",
+        "wellbeing",
+        "time-tracking",
+        "hooks"
+      ],
       "strict": true
     },
     {
@@ -33,7 +56,17 @@
         "url": "justanotherspy/sproot",
         "path": "plugins/sproot"
       },
-      "description": "Convert setup bash scripts into sproot.yaml modules, and author/explain/validate sproot configs - /sproot:script-convert + /sproot:author-config skills.",
+      "description": "Convert setup bash scripts into sproot.yaml modules, and author, explain and validate sproot configs - the /sproot:script-convert and /sproot:author-config skills.",
+      "repository": "https://github.com/justanotherspy/sproot",
+      "license": "MIT",
+      "category": "development",
+      "keywords": [
+        "sproot",
+        "sprite",
+        "bootstrap",
+        "yaml",
+        "bash"
+      ],
       "strict": true
     },
     {
@@ -42,13 +75,38 @@
         "source": "github",
         "repo": "blader/humanizer"
       },
-      "description": "Rewrite AI-sounding text so it reads naturally without changing what it says. External plugin sourced from blader/humanizer.",
+      "description": "Rewrite AI-sounding text so it reads naturally without changing what it says. External plugin maintained by blader, sourced from blader/humanizer.",
+      "author": {
+        "name": "blader",
+        "url": "https://github.com/blader"
+      },
+      "repository": "https://github.com/blader/humanizer",
+      "license": "MIT",
+      "category": "writing",
+      "keywords": [
+        "writing",
+        "editing",
+        "humanize",
+        "prose",
+        "style"
+      ],
       "strict": true
     },
     {
       "name": "output-styles",
       "source": "./plugins/output-styles",
       "description": "A collection of output styles for Claude Code. Includes ASD-STE100, Simplified Technical English for agent prose: one meaning per word, active voice, simple tenses, short sentences.",
+      "homepage": "https://github.com/justanotherspy/claude-plugins/tree/main/plugins/output-styles",
+      "repository": "https://github.com/justanotherspy/claude-plugins",
+      "license": "MIT",
+      "category": "writing",
+      "keywords": [
+        "output-styles",
+        "writing",
+        "ste",
+        "asd-ste100",
+        "technical-writing"
+      ],
       "strict": true
     }
   ]
