@@ -5,19 +5,30 @@ on:
     paths:
       - '.claude-plugin/**'
       - 'plugins/**'
+      - 'scripts/**'
       - '.github/workflows/validate-marketplace.yml'
   push:
     branches: [main]
     paths:
       - '.claude-plugin/**'
       - 'plugins/**'
+      - 'scripts/**'
       - '.github/workflows/validate-marketplace.yml'
+  # External sources change without a commit here; catch breakage before a sync does.
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
@@ -28,3 +39,6 @@ jobs:
 
       - name: Validate marketplace manifest (strict)
         run: claude plugin validate --strict .
+
+      - name: Validate every plugin at its source
+        run: scripts/validate-sources.sh

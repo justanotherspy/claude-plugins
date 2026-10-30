@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "output-styles",
   "description": "A collection of output styles for Claude Code. Includes ASD-STE100, Simplified Technical English for agent prose.",
   "version": "0.1.0",

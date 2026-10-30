@@ -14,6 +14,8 @@ catalogs them all and points at where to fetch each one.
 | `garlic`        | [`justanotherspy/garlic`](https://github.com/justanotherspy/garlic) | Ward off AI burnout — tracks active Claude Code time via hooks and nudges breaks, plus `/garlic status`. Needs the `garlic` binary on PATH (`cargo install garlic-ward`). |
 | `sproot`        | [`justanotherspy/sproot`](https://github.com/justanotherspy/sproot) | Author and convert `sproot.yaml` configs — `/sproot:script-convert` + `/sproot:author-config` skills. |
 | `humanizer`     | [`blader/humanizer`](https://github.com/blader/humanizer)           | Rewrite AI-sounding text so it reads naturally without changing what it says (external plugin, maintained by blader). |
+| `hey`           | [`basecamp/hey-cli`](https://github.com/basecamp/hey-cli)           | HEY email, calendars, todos, journal and time tracking from Claude Code (external plugin, maintained by 37signals). Needs the `hey` binary on PATH. |
+| `sprites`       | [`superfly/sprites-claude-plugin`](https://github.com/superfly/sprites-claude-plugin) | Create, inspect, and operate remote Sprites environments (external plugin, maintained by Fly.io). |
 | `output-styles` | [`plugins/output-styles`](plugins/output-styles)                    | Output styles for Claude Code — currently `ASD-STE100`, Simplified Technical English for prose. |
 
 ## How sources are declared
@@ -23,8 +25,8 @@ per the [plugin marketplace reference](https://code.claude.com/docs/en/plugin-ma
 
 | Where the plugin lives                      | Source type                                                                                                   | Used by                      |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| A subdirectory of another repo              | [`git-subdir`](https://code.claude.com/docs/en/plugin-marketplaces#git-subdirectories) with `url` + `path`     | `shuck`, `garlic`, `sproot`  |
-| The root of another repo                    | `github` with `repo`                                                                                            | `humanizer`                  |
+| A subdirectory of another repo              | [`git-subdir`](https://code.claude.com/docs/en/plugin-marketplaces#git-subdirectories) with an `https://` `url` + `path` | `shuck`, `garlic`, `sproot`, `sprites` |
+| The root of another repo                    | `github` with `repo`                                                                                            | `humanizer`, `hey`           |
 | This repo                                   | A relative path starting with `./`                                                                              | `output-styles`              |
 
 `git-subdir` does a partial clone (`--filter=tree:0`) and materializes only the
@@ -43,8 +45,9 @@ Two deliberate choices:
   carries only listing metadata (description, repository, license, category,
   keywords), which cannot drift out of sync with an upstream release.
 
-Both manifests reference their [SchemaStore](https://www.schemastore.org)
-schema via `$schema`, so editors validate and autocomplete them.
+The marketplace manifest references its [SchemaStore](https://www.schemastore.org)
+schema via `$schema`, so editors validate and autocomplete it. Plugin manifests
+leave `$schema` out: the marketplace sync flags it as an unrecognized key.
 
 ## Install
 
@@ -61,6 +64,8 @@ Then install the plugins you want:
 /plugin install garlic@justanotherspy
 /plugin install sproot@justanotherspy
 /plugin install humanizer@justanotherspy
+/plugin install hey@justanotherspy
+/plugin install sprites@justanotherspy
 /plugin install output-styles@justanotherspy
 ```
 
@@ -87,6 +92,14 @@ To enable plugins automatically for a repo, add them to that repo's
    in `plugins/<name>/` here when it stands alone.
 2. Add an entry to `.claude-plugin/marketplace.json` here, picking the source
    type from the table above.
-3. Validate with `claude plugin validate --strict .`, then push. CI runs the
-   same check on every pull request that touches `.claude-plugin/` or
-   `plugins/`.
+3. Validate with `claude plugin validate --strict .` and
+   `scripts/validate-sources.sh`, then push.
+
+CI (`.github/workflows/validate-marketplace.yml`) runs both on every pull
+request that touches `.claude-plugin/`, `plugins/` or `scripts/`, on pushes to
+`main`, and daily, since external sources change without a commit here.
+`validate-sources.sh` lints the catalog (unique names, required listing fields,
+`strict: true`, `https://` URLs for git sources, which the marketplace sync
+requires and the manifest validator does not check), then fetches each plugin
+from its real source and validates it: `--strict` for plugins maintained here,
+errors only for external plugins (entries with an `author`).
