@@ -14,6 +14,7 @@ catalogs them all and points at where to fetch each one.
 | `garlic`        | [`justanotherspy/garlic`](https://github.com/justanotherspy/garlic) | Ward off AI burnout — tracks active Claude Code time via hooks and nudges breaks, plus `/garlic status`. Needs the `garlic` binary on PATH (`cargo install garlic-ward`). |
 | `sproot`        | [`justanotherspy/sproot`](https://github.com/justanotherspy/sproot) | Author and convert `sproot.yaml` configs — `/sproot:script-convert` + `/sproot:author-config` skills. |
 | `humanizer`     | [`blader/humanizer`](https://github.com/blader/humanizer)           | Rewrite AI-sounding text so it reads naturally without changing what it says (external plugin, maintained by blader). |
+| `hey`           | [`justanotherspy/hey-cli`](https://github.com/justanotherspy/hey-cli) | HEY email, calendars, todos, journal and time tracking from Claude Code (external plugin, maintained by 37signals). Needs the `hey` binary on PATH. |
 | `output-styles` | [`plugins/output-styles`](plugins/output-styles)                    | Output styles for Claude Code — currently `ASD-STE100`, Simplified Technical English for prose. |
 
 ## How sources are declared
@@ -23,8 +24,8 @@ per the [plugin marketplace reference](https://code.claude.com/docs/en/plugin-ma
 
 | Where the plugin lives                      | Source type                                                                                                   | Used by                      |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| A subdirectory of another repo              | [`git-subdir`](https://code.claude.com/docs/en/plugin-marketplaces#git-subdirectories) with `url` + `path`     | `shuck`, `garlic`, `sproot`  |
-| The root of another repo                    | `github` with `repo`                                                                                            | `humanizer`                  |
+| A subdirectory of another repo              | [`git-subdir`](https://code.claude.com/docs/en/plugin-marketplaces#git-subdirectories) with an `https://` `url` + `path` | `shuck`, `garlic`, `sproot`  |
+| The root of another repo                    | `github` with `repo`                                                                                            | `humanizer`, `hey`           |
 | This repo                                   | A relative path starting with `./`                                                                              | `output-styles`              |
 
 `git-subdir` does a partial clone (`--filter=tree:0`) and materializes only the
@@ -43,8 +44,9 @@ Two deliberate choices:
   carries only listing metadata (description, repository, license, category,
   keywords), which cannot drift out of sync with an upstream release.
 
-Both manifests reference their [SchemaStore](https://www.schemastore.org)
-schema via `$schema`, so editors validate and autocomplete them.
+The marketplace manifest references its [SchemaStore](https://www.schemastore.org)
+schema via `$schema`, so editors validate and autocomplete it. Plugin manifests
+leave `$schema` out: the marketplace sync flags it as an unrecognized key.
 
 ## Install
 
@@ -61,6 +63,7 @@ Then install the plugins you want:
 /plugin install garlic@justanotherspy
 /plugin install sproot@justanotherspy
 /plugin install humanizer@justanotherspy
+/plugin install hey@justanotherspy
 /plugin install output-styles@justanotherspy
 ```
 

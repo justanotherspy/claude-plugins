@@ -12,7 +12,7 @@
       "name": "shuck",
       "source": {
         "source": "git-subdir",
-        "url": "justanotherspy/shuck",
+        "url": "https://github.com/justanotherspy/shuck.git",
         "path": "plugins/shuck"
       },
       "description": "Keep Claude current on the pull request you are actually working on. A background monitor follows your working tree and reports new CI failures with their exact failing step logs, review comments with the surrounding code, and GitHub Actions whose SHA pin has gone stale, as they happen. Adds the /shuck skill for the same reports on demand. Requires the shuck binary on PATH.",
@@ -34,7 +34,7 @@
       "name": "garlic",
       "source": {
         "source": "git-subdir",
-        "url": "justanotherspy/garlic",
+        "url": "https://github.com/justanotherspy/garlic.git",
         "path": "plugins/garlic"
       },
       "description": "Ward off AI burnout: tracks active Claude Code time via hooks and nudges you to take breaks, plus a /garlic status command. Requires the garlic binary on PATH (cargo install garlic-ward).",
@@ -53,7 +53,7 @@
       "name": "sproot",
       "source": {
         "source": "git-subdir",
-        "url": "justanotherspy/sproot",
+        "url": "https://github.com/justanotherspy/sproot.git",
         "path": "plugins/sproot"
       },
       "description": "Convert setup bash scripts into sproot.yaml modules, and author, explain and validate sproot configs - the /sproot:script-convert and /sproot:author-config skills.",
@@ -89,6 +89,30 @@
         "humanize",
         "prose",
         "style"
+      ],
+      "strict": true
+    },
+    {
+      "name": "hey",
+      "source": {
+        "source": "github",
+        "repo": "justanotherspy/hey-cli"
+      },
+      "description": "HEY integration for Claude Code: read and send email, manage todos, calendars, journal entries and time tracking through the hey CLI. External plugin maintained by 37signals, sourced from justanotherspy/hey-cli. Requires the hey binary on PATH.",
+      "author": {
+        "name": "37signals",
+        "url": "https://github.com/basecamp"
+      },
+      "repository": "https://github.com/justanotherspy/hey-cli",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "hey",
+        "email",
+        "calendar",
+        "todos",
+        "time-tracking",
+        "cli"
       ],
       "strict": true
     },
