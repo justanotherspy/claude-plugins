@@ -72,6 +72,12 @@ while IFS='|' read -r name kind a b external; do
   got="$(jq -r '.name' "$dir/.claude-plugin/plugin.json")"
   [ "$got" = "$name" ] || fail "$name: plugin.json is named '$got'"
 
+  # The claude.ai sync skips a plugin with a top-level bin/, even an empty one
+  # (bin/.keep), and `claude plugin validate` does not check for it.
+  if [ -n "$(git -C "$dir" ls-files -- bin)" ]; then
+    fail "$name: ships a top-level bin/ directory, which the marketplace sync rejects"
+  fi
+
   if [ "$external" = "true" ]; then
     echo "-- $name (external, errors only)"
     claude plugin validate "$dir" || fail "$name: validation failed"
