@@ -15,6 +15,7 @@ catalogs them all and points at where to fetch each one.
 | `sproot`        | [`justanotherspy/sproot`](https://github.com/justanotherspy/sproot) | Author and convert `sproot.yaml` configs — `/sproot:script-convert` + `/sproot:author-config` skills. |
 | `humanizer`     | [`blader/humanizer`](https://github.com/blader/humanizer)           | Rewrite AI-sounding text so it reads naturally without changing what it says (external plugin, maintained by blader). |
 | `hey`           | [`basecamp/hey-cli`](https://github.com/basecamp/hey-cli)           | HEY email, calendars, todos, journal and time tracking from Claude Code (external plugin, maintained by 37signals). Needs the `hey` binary on PATH. |
+| `sprites`       | [`superfly/sprites-claude-plugin`](https://github.com/superfly/sprites-claude-plugin) | Create, inspect, and operate remote Sprites environments (external plugin, maintained by Fly.io). |
 | `output-styles` | [`plugins/output-styles`](plugins/output-styles)                    | Output styles for Claude Code — currently `ASD-STE100`, Simplified Technical English for prose. |
 
 ## How sources are declared
@@ -24,7 +25,7 @@ per the [plugin marketplace reference](https://code.claude.com/docs/en/plugin-ma
 
 | Where the plugin lives                      | Source type                                                                                                   | Used by                      |
 | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| A subdirectory of another repo              | [`git-subdir`](https://code.claude.com/docs/en/plugin-marketplaces#git-subdirectories) with an `https://` `url` + `path` | `shuck`, `garlic`, `sproot`  |
+| A subdirectory of another repo              | [`git-subdir`](https://code.claude.com/docs/en/plugin-marketplaces#git-subdirectories) with an `https://` `url` + `path` | `shuck`, `garlic`, `sproot`, `sprites` |
 | The root of another repo                    | `github` with `repo`                                                                                            | `humanizer`, `hey`           |
 | This repo                                   | A relative path starting with `./`                                                                              | `output-styles`              |
 
@@ -64,6 +65,7 @@ Then install the plugins you want:
 /plugin install sproot@justanotherspy
 /plugin install humanizer@justanotherspy
 /plugin install hey@justanotherspy
+/plugin install sprites@justanotherspy
 /plugin install output-styles@justanotherspy
 ```
 

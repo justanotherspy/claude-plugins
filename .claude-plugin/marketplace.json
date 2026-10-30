@@ -117,6 +117,30 @@
       "strict": true
     },
     {
+      "name": "sprites",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/superfly/sprites-claude-plugin.git",
+        "path": "plugins/sprites"
+      },
+      "description": "Create, inspect, and operate remote Sprites environments from Claude Code. External plugin maintained by Fly.io, sourced from superfly/sprites-claude-plugin.",
+      "author": {
+        "name": "Fly.io",
+        "url": "https://fly.io"
+      },
+      "repository": "https://github.com/superfly/sprites-claude-plugin",
+      "license": "MIT",
+      "category": "development",
+      "keywords": [
+        "sprites",
+        "development-environments",
+        "sandboxes",
+        "remote-compute",
+        "mcp"
+      ],
+      "strict": true
+    },
+    {
       "name": "output-styles",
       "source": "./plugins/output-styles",
       "description": "A collection of output styles for Claude Code. Includes ASD-STE100, Simplified Technical English for agent prose: one meaning per word, active voice, simple tenses, short sentences.",
