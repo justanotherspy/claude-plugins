@@ -96,14 +96,14 @@
       "name": "hey",
       "source": {
         "source": "github",
-        "repo": "justanotherspy/hey-cli"
+        "repo": "basecamp/hey-cli"
       },
-      "description": "HEY integration for Claude Code: read and send email, manage todos, calendars, journal entries and time tracking through the hey CLI. External plugin maintained by 37signals, sourced from justanotherspy/hey-cli. Requires the hey binary on PATH.",
+      "description": "HEY integration for Claude Code: read and send email, manage todos, calendars, journal entries and time tracking through the hey CLI. External plugin maintained by 37signals, sourced from basecamp/hey-cli. Requires the hey binary on PATH.",
       "author": {
         "name": "37signals",
         "url": "https://github.com/basecamp"
       },
-      "repository": "https://github.com/justanotherspy/hey-cli",
+      "repository": "https://github.com/basecamp/hey-cli",
       "license": "MIT",
       "category": "productivity",
       "keywords": [
