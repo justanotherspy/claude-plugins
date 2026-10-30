@@ -90,6 +90,14 @@ To enable plugins automatically for a repo, add them to that repo's
    in `plugins/<name>/` here when it stands alone.
 2. Add an entry to `.claude-plugin/marketplace.json` here, picking the source
    type from the table above.
-3. Validate with `claude plugin validate --strict .`, then push. CI runs the
-   same check on every pull request that touches `.claude-plugin/` or
-   `plugins/`.
+3. Validate with `claude plugin validate --strict .` and
+   `scripts/validate-sources.sh`, then push.
+
+CI (`.github/workflows/validate-marketplace.yml`) runs both on every pull
+request that touches `.claude-plugin/`, `plugins/` or `scripts/`, on pushes to
+`main`, and daily, since external sources change without a commit here.
+`validate-sources.sh` lints the catalog (unique names, required listing fields,
+`strict: true`, `https://` URLs for git sources, which the marketplace sync
+requires and the manifest validator does not check), then fetches each plugin
+from its real source and validates it: `--strict` for plugins maintained here,
+errors only for external plugins (entries with an `author`).
