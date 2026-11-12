@@ -37,7 +37,7 @@
         "url": "https://github.com/justanotherspy/garlic.git",
         "path": "plugins/garlic"
       },
-      "description": "Ward off AI burnout: tracks active Claude Code time via hooks and nudges you to take breaks, plus a /garlic status command. Requires the garlic binary on PATH (cargo install garlic-ward).",
+      "description": "Ward off AI burnout: a Claude Code mod that tracks your time against your agents' time, shows it on the status line and in a /garlic panel, and nudges you to take breaks. Requires the garlic binary on PATH (brew install --cask justanotherspy/tap/garlic, or cargo install garlic-ward).",
       "repository": "https://github.com/justanotherspy/garlic",
       "license": "MIT",
       "category": "productivity",
@@ -45,7 +45,7 @@
         "productivity",
         "wellbeing",
         "time-tracking",
-        "hooks"
+        "mod"
       ],
       "strict": true
     },
